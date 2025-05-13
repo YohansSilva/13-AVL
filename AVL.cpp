@@ -141,6 +141,20 @@ int fatorBalanceamento(NO* no) {
 }
 
 NO* girarDireita(NO* y) {  
+    NO* aux = y->esq;
+    y->esq = aux->dir;
+    aux->dir = y;
+    raiz = aux;
+
+    aux->altura = aux->altura -1;
+    y->altura = y->altura + 1;
+   
+    return aux;
+       
+    
+ 
+
+
    /* Rotação simples à direita  
              y                x  
             / \              / \  
@@ -160,6 +174,12 @@ NO* girarDireita(NO* y) {
 }  
 
 NO* girarEsquerda(NO* x) {  
+    NO* auy = x->dir;
+    x->dir = auy->esq;
+    auy->esq - x;
+    raiz = auy;
+    return auy;
+
    /* Rotação simples à esquerda  
            x                    y  
           / \                  / \  
@@ -167,6 +187,8 @@ NO* girarEsquerda(NO* x) {
             / \              / \  
            T2 T3            T1 T2  
    */  
+
+ 
 
    // Passo 1: Armazene o filho direito de 'x' em uma variável temporária 'y'.  
    // Passo 2: Transfira a subárvore esquerda de 'y' para a subárvore direita de 'x'.  
